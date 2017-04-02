@@ -57,6 +57,7 @@ public class TextController {
             ChatterBotSession session = bot.createSession();
 
             Message reply = new Message.Builder().body(new Body(session.think(message))).build();
+            log.info("Message in response: {}", reply.getBody().getBody());
             MessagingResponse twiml = new MessagingResponse.Builder().message(reply).build();
             //reply(twiml);
             return twiml;
